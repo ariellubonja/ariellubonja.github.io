@@ -95,7 +95,7 @@ analytics:
 # Site Author
 author:
   name             : "Ariel Lubonja"
-  avatar           : "/assets/images/rd.jpg"
+  # avatar           : "/assets/images/rd.jpg"
   bio              : "Master of Science in Engineering in Data Science"
   location         : #Baltimore, Maryland"
   email            :
@@ -107,12 +107,12 @@ author:
     - label: "Personal Email"
       icon: "fas fa-fw fa-envelope-square"
       url:  "mailto: ariellubonja@live.com"
-    # - label: "DBLP"
-    #   icon: "ai ai-dblp"
-    #   url: "https://dblp.org/pid/69/2960.html"
-    # - label: "Google Scholar"
-    #   icon: "ai ai-google-scholar"
-    #   url: "https://scholar.google.de/citations?hl=en&user=HgCDGyQAAAAJ&view_op=list_works&sortby=pubdate"
+    - label: "DBLP"
+      icon: "ai ai-dblp"
+      url: "https://dblp.org/pid/69/2960.html"
+    - label: "Google Scholar"
+      icon: "ai ai-google-scholar"
+      url: "https://scholar.google.de/citations?hl=en&user=HgCDGyQAAAAJ&view_op=list_works&sortby=pubdate"
     
     - label: "Website"
       icon: "fas fa-fw fa-link"
