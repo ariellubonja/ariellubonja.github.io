@@ -5,6 +5,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
+<<<<<<< HEAD
 # Theme Settings
 #
 # Review documentation to determine if you should use `theme` or `remote_theme`
@@ -16,10 +17,10 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Rayna Dimitrova"
+title                    : "Ariel Lubonja"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Rayna Dimitrova"
+name                     : "Ariel Lubonja"
 description              : #"An amazing website."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -93,22 +94,25 @@ analytics:
 
 # Site Author
 author:
-  name             : "Rayna Dimitrova"
+  name             : "Ariel Lubonja"
   avatar           : "/assets/images/rd.jpg"
-  bio              : "Tenure-track faculty at CISPA Helmholtz Center for Information Security"
-  location         : #Saarbrücken, Germany"
+  bio              : "Master of Science in Engineering in Data Science"
+  location         : #Baltimore, Maryland"
   email            :
   links:
     
-    - label: "Email"
+    - label: "School Email"
       icon: "fas fa-fw fa-envelope-square"
-      url:  "mailto: dimitrova@cispa.de"
-    - label: "DBLP"
-      icon: "ai ai-dblp"
-      url: "https://dblp.org/pid/69/2960.html"
-    - label: "Google Scholar"
-      icon: "ai ai-google-scholar"
-      url: "https://scholar.google.de/citations?hl=en&user=HgCDGyQAAAAJ&view_op=list_works&sortby=pubdate"
+      url:  "mailto: alubonj1@jh.edu"
+    - label: "Personal Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url:  "mailto: ariellubonja@live.com"
+    # - label: "DBLP"
+    #   icon: "ai ai-dblp"
+    #   url: "https://dblp.org/pid/69/2960.html"
+    # - label: "Google Scholar"
+    #   icon: "ai ai-google-scholar"
+    #   url: "https://scholar.google.de/citations?hl=en&user=HgCDGyQAAAAJ&view_op=list_works&sortby=pubdate"
     
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -121,7 +125,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/ariel5"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
@@ -267,3 +271,7 @@ defaults:
       comments: # true
       share: true
       related: true
+# =======
+# title: [Ariel Lubonja]
+# description: Projects, Papers and stuff
+# >>>>>>> ff6a2d19e83f24bca32854fac26e3f85cf79e647
