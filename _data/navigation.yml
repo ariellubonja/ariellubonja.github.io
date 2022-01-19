@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "Home"
-    url: /
+#  - title: "Home"
+#    url: /
 #  - title: "Research"
 #    url: /research/
 #  - title: "Publications"
@@ -10,4 +10,4 @@ main:
 #    url: /service/
 #  - title: "Teaching"
 #    url: /teaching/
-  
+
