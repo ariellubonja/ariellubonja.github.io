@@ -96,17 +96,17 @@ analytics:
 author:
   name             : "Ariel Lubonja"
   avatar           : "/assets/images/ariel.jpg"
-  bio              : "Master of Science in Engineering in Data Science"
+  bio              : "PhD Student in Computer Science at Johns Hopkins University"
   location         : #Baltimore, Maryland"
   email            :
   links:
     
-    - label: "School Email"
+    - label: "ariel@cs.jhu.edu"
       icon: "fas fa-fw fa-envelope-square"
-      url:  "mailto: alubonj1@jh.edu"
-    - label: "Personal Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url:  "mailto: ariellubonja@live.com"
+      url:  "mailto: ariel@cs.jhu.edu"
+    # - label: "Personal Email"
+    #   icon: "fas fa-fw fa-envelope-square"
+    #   url:  "mailto: ariellubonja@live.com"
     - label: "YouTube"
 #      icon: "fab fa-youtube-play"
       url: "https://www.youtube.com/channel/UCSY3KplVigD5kuFLH_kbTXQ"
