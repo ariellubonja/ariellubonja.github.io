@@ -1,9 +1,9 @@
 # main links
 main:
-#  - title: "Home"
-#    url: /
-#  - title: "Research"
-#    url: /research/
+  - title: "Home"
+    url: /
+  - title: "Support"
+    url: /support/
 #  - title: "Publications"
 #    url: /publications/
 #  - title: "Service"
