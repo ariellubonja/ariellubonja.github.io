@@ -2,8 +2,8 @@
 main:
   - title: "Home"
     url: /
-  - title: "Dall-E Add-on Support"
-    url: /support/
+  - title: "Dall-E Add-on"
+    url: /dall-e/
 #  - title: "Publications"
 #    url: /publications/
 #  - title: "Service"
