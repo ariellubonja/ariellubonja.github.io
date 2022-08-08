@@ -3,7 +3,7 @@ main:
   - title: "Home"
     url: /
   - title: "Dall-E Add-on"
-    url: /try-new-dalle/
+    url: /dall-e/
 #  - title: "Publications"
 #    url: /publications/
 #  - title: "Service"
