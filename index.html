@@ -1,98 +1,201 @@
 ---
 layout: single
 author_profile: true
+description: "Ariel Lubonja - PhD Candidate at Johns Hopkins University. Scalable and high-performance Machine Learning: CPU/GPU profiling, CUDA, tree ensembles, graph learning and scientific data systems."
 ---
 
 <br/>
 
-<p>I am a PhD student in Machine Learning at Johns Hopkins University, under advisors <a
-        href="https://www.cs.jhu.edu/faculty/randal-burns/">Randal Burns</a> and <a href="https://en.wikipedia.org/wiki/Alan_Yuille">Alan Yuille</a>. My research focus is
-    scalable and high performance Machine Learning, Fluid Dynamics and Medical Imaging methods. Member of the <a href="https://www.idies.jhu.edu">Institute for Data Intensive Engineering and Science (IDIES)</a>
+<p>I am a PhD candidate in Machine Learning at Johns Hopkins University, advised by <a
+        href="https://www.cs.jhu.edu/faculty/randal-burns/">Randal Burns</a>, <a
+        href="https://www.bme.jhu.edu/people/faculty/joshua-t-vogelstein/">Joshua Vogelstein</a> and <a
+        href="https://en.wikipedia.org/wiki/Alan_Yuille">Alan Yuille</a>. My research focus is
+    scalable and high performance Machine Learning, Fluid Dynamics and Medical Imaging methods. I am a member of the <a
+        href="https://www.idies.jhu.edu">Institute for Data Intensive Engineering and Science (IDIES)</a>, and I write
+    about High Performance Python, scientific data management and hands-on graph data science.</p>
 
-      <!-- I also have a <a href="">Medium profile</a> where I publish articles on High Performance Python, Scientific Data Management, -->
-      hands-on Graph Data Science.
+<h1><b>News</b></h1>
 
-      <!-- I love speaking at various events, most recently the 2023 <a href="https://workshops.eeml.eu/">Google Deepmind's EEML seminar</a> in Albania. -->
+<ul class="news-list">
+    <li><b>Feb 2026</b> — <a href="https://arxiv.org/abs/2603.00326">Vectorized Adaptive Histograms for Sparse Oblique
+            Forests</a> posted to arXiv, joint work with Google's <a
+            href="https://github.com/google/yggdrasil-decision-forests">Yggdrasil Decision Forests (YDF)</a> team.</li>
+    <li><b>Feb 2026</b> — Second pull request merged into <a href="https://github.com/NVIDIA/physicsnemo-sym">NVIDIA
+            PhysicsNeMo-Sym</a>, restoring and speeding up its Johns Hopkins Turbulence Database integration.</li>
+    <li><b>Jul 2025</b> — First contribution merged upstream into Google's <a
+            href="https://github.com/google/yggdrasil-decision-forests/pull/199">YDF</a>: O(k) binomial oblique
+        projection sampling.</li>
+    <li><b>May 2024</b> — <a href="https://ieeexplore.ieee.org/document/10596504/">Edge-Parallel Graph Encoder
+            Embedding</a> presented at IPDPS 2024 Workshops (GrAPL).</li>
+</ul>
 
+<br/>
 
-</p>
+<h1><b>Selected work</b></h1>
+
+<h3>Faster oblique forests in Google's YDF</h3>
+
+<p>Sparse oblique forests are more expressive than standard random forests, but far more expensive to train because
+    they build deep trees and must sort or histogram linear combinations of the data at every split. I make them
+    practical, working directly with Google's <a href="https://github.com/google/yggdrasil-decision-forests">Yggdrasil
+        Decision Forests</a> (YDF) team in Zurich.</p>
+
+<p>Cutting sparse oblique training time by <b>~6&times;</b> on high-dimensional data &mdash; 12 hours down to 2 &mdash;
+    contributed as <b>7 upstream pull requests</b> (3 merged, 4 in review) rather than a private fork. On top of that
+    baseline, two further methods add another <b>1.7&ndash;2.5&times;</b> end to end: SIMD-vectorized histogram binning,
+    where two vector compares replace a per-sample binary search, and a per-node adaptive splitter that chooses between
+    exact and histogram splits by cardinality. I am now extending this to multi-node distributed training and
+    SIMD-vectorized inference via QuickScorer, and I mentor two graduate students on the project.</p>
+
+<p><a href="https://arxiv.org/abs/2603.00326">arXiv preprint</a> &middot; <a
+        href="https://github.com/google/yggdrasil-decision-forests/pulls?q=is%3Apr+author%3Aariellubonja">Upstream
+        PRs</a> &middot; <a href="https://github.com/ariellubonja/yggdrasil-oblique-forests">Experimental fork</a></p>
+
+<h3>NVIDIA PhysicsNeMo &amp; the Johns Hopkins Turbulence Database</h3>
+
+<p><a href="https://github.com/NVIDIA/physicsnemo-sym">PhysicsNeMo</a> is NVIDIA's framework for Physics-ML surrogates
+    of expensive dynamical systems, and it reads from the <a href="https://turbulence.pha.jhu.edu">Johns Hopkins
+        Turbulence Database (JHTDB)</a>, of which I am a funded member. I restored its broken JHTDB data path by porting
+    it onto the current Giverny API, and removed a redundant low-resolution fetch for a 60% runtime reduction. Two pull
+    requests merged upstream.</p>
+
+<p><a href="https://github.com/NVIDIA/physicsnemo-sym/pull/275">PR #275</a> &middot; <a
+        href="https://github.com/NVIDIA/physicsnemo-sym/pull/285">PR #285</a></p>
+
+<h3>Edge-Parallel Graph Encoder Embedding</h3>
+
+<p>Graph Encoder Embedding computes node embeddings in a single linear pass over edges &mdash; an order of magnitude
+    cheaper than spectral, node2vec or GCN methods even before parallelization &mdash; but its reference implementation
+    was serial and interpreted. I reformulated it as a lock-free, edge-parallel program in the Ligra graph engine. On
+    the 1.8B-edge Friendster graph this cuts embedding from <b>~56 minutes to 6.4 seconds</b> on 24 cores: a
+    <b>500&times;</b> speedup over the original implementation and <b>17&times;</b> over a Numba JIT baseline.
+    Peer-reviewed and published at IPDPS 2024 Workshops (GrAPL).</p>
+
+<p><a href="https://ieeexplore.ieee.org/document/10596504/">IEEE Xplore</a> &middot; <a
+        href="https://arxiv.org/abs/2402.04403">arXiv</a> &middot; <a
+        href="https://github.com/ariellubonja/parallel-graph-encoder-embedding-ligra">GitHub</a></p>
+
+<h3>GPU-accelerated Orthogonal Matching Pursuit</h3>
+
+<p>Scikit-learn's OMP is accessible but single-threaded, which rules it out for all but the smallest sparse
+    reconstruction problems. Using Gramian precomputation, Cholesky factorization and cuBLAS, my implementation is up to
+    <b>310&times;</b> faster than Scikit-learn and <b>26&times;</b> faster than SPAMS &mdash; including up to
+    <b>83&times;</b> on a single core before any GPU is involved &mdash; while staying a drop-in
+    scikit-learn-compatible estimator.</p>
+
+<p><a href="https://arxiv.org/abs/2407.06434">arXiv</a> &middot; <a
+        href="https://github.com/ariellubonja/orthogonal-matching-pursuit-gpu">GitHub</a> &middot; <a
+        href="https://pypi.org/project/batched-omp/">pip install batched-omp</a></p>
+
+<br/>
 
 <h1><b>Publications</b></h1>
 
-Scaling Orthogonal Matching Pursuit to High Performance CPUs & GPUs  - <a href="https://arxiv.org/pdf/2407.06434">arXiv</a> - <a href="https://github.com/ariellubonja/orthogonal-matching-pursuit-parallel-gpu">GitHub</a>
-
-Application of Machine Learning in a Rodent Malaria Model for Rapid, Accurate, and Consistent Parasite Counts - <a href="https://www.biorxiv.org/content/10.1101/2024.06.05.597554v1.full.pdf">BiorXiv</a>
+<ul class="pub-list">
+    <li>Vectorized Adaptive Histograms for Sparse Oblique Forests &mdash; <a
+            href="https://arxiv.org/abs/2603.00326">arXiv</a>
+        <br/><span class="pub-venue">Preprint, 2026. With the Google YDF team.</span>
+    </li>
+    <li>Edge-Parallel Graph Encoder Embedding &mdash; <a
+            href="https://ieeexplore.ieee.org/document/10596504/">IEEE Xplore</a> &middot; <a
+            href="https://arxiv.org/abs/2402.04403">arXiv</a> &middot; <a
+            href="https://github.com/ariellubonja/parallel-graph-encoder-embedding-ligra">GitHub</a>
+        <br/><span class="pub-venue">IEEE IPDPS 2024 Workshops (GrAPL)</span>
+    </li>
+    <li>A Practical GPU-Accelerated Implementation of Orthogonal Matching Pursuit &mdash; <a
+            href="https://arxiv.org/abs/2407.06434">arXiv</a> &middot; <a
+            href="https://github.com/ariellubonja/orthogonal-matching-pursuit-gpu">GitHub</a>
+        <br/><span class="pub-venue">Preprint, 2024</span>
+    </li>
+    <li>Application of Machine Learning in a Rodent Malaria Model for Rapid, Accurate, and Consistent Parasite Counts
+        &mdash; <a href="https://www.biorxiv.org/content/10.1101/2024.06.05.597554v1">bioRxiv</a>
+        <br/><span class="pub-venue">Preprint, 2024</span>
+    </li>
+    <li>Analysis of Inertial-Range Intermittency in Forward and Inverse Cascade Regions in Isotropic Turbulence &mdash;
+        <a href="https://arxiv.org/abs/2504.04595">arXiv</a>
+        <br/><span class="pub-venue">Preprint, 2025</span>
+    </li>
+    <li>Analysis of Energy Cascade and Buoyancy Loss in a Publicly Accessible Stable Atmospheric Boundary Layer Dataset
+        &mdash; <a href="https://ui.adsabs.harvard.edu/abs/2024AGUFMA12B...06Y/abstract">NASA ADS</a>
+        <br/><span class="pub-venue">AGU Fall Meeting 2024</span>
+    </li>
+</ul>
 
 <br/>
-
-Edge-Parallel Graph Encoder Embedding - <a href="https://arxiv.org/pdf/2402.04403v1.pdf">arXiv</a> - <a href="https://github.com/ariellubonja/graph-encoder-embedding">GitHub</a>
-
-<br/>
-
-Analysis of Inertial-Range Intermittency in Forward and Inverse Cascade Regions in Isotropic Turbulence  - <a href="https://arxiv.org/pdf/2504.04595">arXiv</a>
-
-<br/>
-
-Analysis of Energy Cascade and Buoyancy Loss in a Publicly Accessible Stable Atmospheric Boundary Layer Dataset  - <a href="https://ui.adsabs.harvard.edu/abs/2024AGUFMA12B...06Y/abstract">harvard.edu</a>
-
-
-<br/><br/>
 
 <!-- Education -->
 
 <!-- Master of Data Science -->
 
-<h1><b>Projects</b></h1>
+<h1><b>Earlier projects &amp; explorations</b></h1>
 
-Utilizing model pruning and Tensor parallelism to scale <a href="https://journals.aps.org/pre/pdf/10.1103/PhysRevE.104.045303">Evolutional Deep Neural Network</a>
-<!-- <br/> -->
-<!-- <ul><li>Also trying out <a href="http://terraform.io">Terraform</a> and <a href="https://www.ansible.com">Ansible to aid research reproducibility</a></li></ul> -->
+<p>Not everything below worked, and that is the point &mdash; these are where the profiling and systems instincts came
+    from. The Zarr and turbulence tooling led directly to JHTDB and PhysicsNeMo; the Ligra experiments became the IPDPS
+    paper; the graph tooling fed Graph Encoder Embedding.</p>
 
+<ul class="proj-list">
+    <li><a href="https://github.com/ariellubonja/evolutional-deep-neural-networks">Model pruning and tensor parallelism
+            for <i>Evolutional Deep Neural Networks</i></a> &mdash; preliminary work on GPU-porting <a
+            href="https://journals.aps.org/pre/pdf/10.1103/PhysRevE.104.045303">EDNNs</a>, a neural surrogate for PDE
+        time evolution. The sequential dependence between time steps left too little work per kernel launch for tensor
+        parallelism to pay off at the network sizes we needed; a useful negative result about where this class of
+        surrogate does and does not scale.</li>
 
-<a href="https://workspace.google.com/marketplace/app/ai_generated_images_dalle/867097413141">Dall-E Image Generator for Google Docs, Sheets and
-    Slides (Deprecated)</a> <a href="/dall-e/">Documentation</a>
+    <li><a href="https://github.com/ariellubonja/xarray-shardster">Deploy scientific datasets to multi-disk
+            systems</a> &mdash; sharding large turbulence arrays across disks to maximize parallel read throughput.
+        Directly ancestral to my JHTDB work.</li>
+
+    <li><a href="https://github.com/ariellubonja/visualize-wind-turbine-dns">Visualize turbulence data</a> &mdash;
+        tooling for direct numerical simulation data, built while learning what JHTDB users actually need.</li>
+
+    <li><a href="https://github.com/ariellubonja/zarr-efficiency-analysis">Zarr efficiency analysis</a> &mdash;
+        benchmarks on whether Zarr and its compression are the right choice for scientific arrays. The answer was "it
+        depends, and here is the measurement", which became two of the articles below.</li>
+
+    <li><a href="https://github.com/ariellubonja/scalable-graph-toolkit">Tools for working with graphs</a> &mdash;
+        synthetic graph generation and benchmarking harnesses, the scaffolding used to evaluate Graph Encoder
+        Embedding.</li>
+
+    <li><a href="https://github.com/ariellubonja/leiden-efficiency-analysis">Leiden community detection performance
+            analysis</a> &mdash; profiling the Leiden algorithm's parallel scaling. The bottleneck turned out to be
+        inherent to the refinement phase rather than the implementation, so I did not pursue a parallel rewrite.</li>
+
+    <li><a href="/dall-e/">DALL&middot;E image generator for Google Docs, Sheets and Slides</a> &mdash; shipped to the
+        Google Workspace Marketplace and used by real people; retired when the underlying API changed. The
+        documentation is kept here.</li>
+
+    <li>Alice in Wonderland chatbot &mdash; built for the University of Southern California with Mycroft
+        speech-to-text, a custom NLP model and Google Dialogflow. The hosted endpoint has since been taken down.</li>
+
+    <li><a href="https://github.com/ariellubonja/drug-inventory-hierarchical-time-series">Hierarchical time series
+            analysis</a> &mdash; reconciled forecasts for same-category pharmaceutical demand.</li>
+
+    <li><a href="https://github.com/ariellubonja/malaria-cell-segmentation">Malaria detection &amp; segmentation</a>
+        &mdash; the computer vision groundwork behind the rodent malaria parasite-counting paper above.</li>
+
+    <li><a href="https://github.com/ariellubonja/hand-gesture-recognition">Hand gesture recognition</a> &mdash; an early
+        computer vision project.</li>
+
+    <li><a href="https://github.com/ariellubonja/octave-dark-theme">Octave dark theme</a> &mdash; a small colour
+        configuration that turned out to be my most-starred repository. A reminder that impact and effort are only
+        loosely correlated.</li>
+</ul>
 
 <br/>
 
-<a href="https://github.com/ariellubonja/zarrify-across-network">Deploy Scientific Datasets to Multi-Disk Systems</a>
+<h2>Repositories I maintain</h2>
 
-<br/>
-
-<a href="https://alice.wonderland.usc.edu/chat/alice-endpoint.html">Alice in Wonderland BERT-based chatbot</a> - Cool Interactive project
-
-<br/>
-
-<a href="https://github.com/ariellubonja/hierarchical-time-series">Hierarchical Time Series Analysis</a>
-
-<br/>
-
-<a href="https://github.com/ariellubonja/visualize-turbulence-data">Visualize Turbulence Data</a>
-
-<br/>
-
-<a href="https://github.com/ariellubonja/graph-tools">Tools for Working with Graphs</a>
-
-<br/>
-
-<a href="https://github.com/ariellubonja/hand-gesture-recognition">Hand Gesture Recognition</a>
-
-<br/>
-
-<a href="https://github.com/ariellubonja/MalariaDetectionSegmentation">Malaria Detection & Segmentation</a>
+I contribute to the Johns Hopkins Turbulence Database's Python clients: <a
+    href="https://github.com/sciserver/giverny">giverny</a> (current) and <a
+    href="https://github.com/ariellubonja/pyJHTDB">pyJHTDB</a> (legacy).
 
 <br/><br/>
-
-<!-- <h2>Repositories I Maintain</h2>
-
-<a href="https://github.com/idies/pyJHTDB">Johns Hopkins Turbulence Database for Python (pyJHTDB)</a> -->
-
 
 <h1>Talks</h1>
 
 <a href="https://workshops.eeml.eu/">DeepMind's EEML Albania 2023</a>
 
 <br/><br/>
-
 
 <h1><b>Articles</b></h1>
 
@@ -114,11 +217,8 @@ Utilizing model pruning and Tensor parallelism to scale <a href="https://journal
 
 <a href="https://medium.com/@lubonjaariel/more-cpu-cores-is-not-better-and-heres-why-a156ac361147">More CPU cores is seldom better, and here’s why</a>
 
-
 <br/>
 
-
-<!-- <h1><b>Medium Articles</b></h1> -->
 <a href="https://medium.com/@lubonjaariel/why-numpy-speed-is-misunderstood-part-2-5f874c0911d5">The Reasons Behind
     Numpy’s Speed are Often Misunderstood - Part 2</a>
 
@@ -137,16 +237,8 @@ Utilizing model pruning and Tensor parallelism to scale <a href="https://journal
 <a href="https://medium.com/@lubonjaariel/parallelize-graph-computations-using-ligra-frameworks-edgemap-interface-759c76d919">Parallelize
     Graph Computations Using Ligra Framework’s EdgeMap Interface</a>
 
-
 <br/>
 
 <h2>Other Cool Experience</h2>
 
-Hands-on Experience with the <a href="https://www.arch.jhu.edu/rockfish-named-496in-top500-orgs-june-2023-top-500%EF%BF%BC/#:~:text=Rockfish%20named%20%23496in%20TOP500.">494th most powerful computer in the world!</a>
-
-
-<!-- Octave dark Theme -->
-
-
-
-
+Hands-on experience with the <a href="https://www.arch.jhu.edu/rockfish-named-496in-top500-orgs-june-2023-top-500%EF%BF%BC/#:~:text=Rockfish%20named%20%23496in%20TOP500.">496th most powerful computer in the world!</a>
