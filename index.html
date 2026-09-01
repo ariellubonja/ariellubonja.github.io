@@ -6,17 +6,31 @@ description: "Ariel Lubonja - PhD Candidate at Johns Hopkins University. Scalabl
 
 <br/>
 
-<p>I am a PhD candidate in Machine Learning at Johns Hopkins University, advised by <a
+<p>I am a PhD candidate in Computer Science at Johns Hopkins University, advised by <a
         href="https://www.cs.jhu.edu/faculty/randal-burns/">Randal Burns</a>, <a
         href="https://www.bme.jhu.edu/people/faculty/joshua-t-vogelstein/">Joshua Vogelstein</a> and <a
-        href="https://en.wikipedia.org/wiki/Alan_Yuille">Alan Yuille</a>. My research focus is
-    scalable and high performance Machine Learning, Fluid Dynamics and Medical Imaging methods. I am a member of the <a
-        href="https://www.idies.jhu.edu">Institute for Data Intensive Engineering and Science (IDIES)</a>, and I write
-    about High Performance Python, scientific data management and hands-on graph data science.</p>
+        href="https://en.wikipedia.org/wiki/Alan_Yuille">Alan Yuille</a>. I work on scalable and high-performance
+    Machine Learning: CPU/GPU profiling, CUDA, tree ensembles, graph learning and scientific data systems. I am a
+    member of the <a href="https://www.idies.jhu.edu">Institute for Data Intensive Engineering and Science
+        (IDIES)</a>, and I write about High Performance Python, scientific data management and hands-on graph data
+    science.</p>
 
 <h1><b>News</b></h1>
 
 <ul class="news-list">
+    <li><b>Sep 2026</b> — Teaching Assistant for <b>EN.601.612 Big Data Systems</b> at Johns Hopkins (Spark, Kafka,
+        Hadoop, NoSQL).</li>
+    <li><b>Aug 2026</b> — Developing the first multi-node distributed training method for sparse oblique forests
+        with the YDF team; none exists today, which keeps the model out of large-scale AutoML pipelines.</li>
+    <li><b>Jul 2026</b> — Two new YDF pull requests in review: <a
+            href="https://github.com/google/yggdrasil-decision-forests/pull/403">#403</a>, 3&times; faster sparse
+        oblique training on high-dimensional data by caching projection evaluation, and <a
+            href="https://github.com/google/yggdrasil-decision-forests/pull/409">#409</a>, up to 75% faster candidate
+        attribute sampling via Fisher&ndash;Yates.</li>
+    <li><b>May 2026</b> — <a href="https://github.com/google/yggdrasil-decision-forests/pull/354">PR #354</a> merged
+        into YDF: Highway VQSort for histogram binning, a 10&ndash;15% end-to-end speedup. <a
+            href="https://github.com/google/yggdrasil-decision-forests/pull/356">#356</a> (15% Random Forest, 30%
+        sparse oblique speedup from restructured split search) in review.</li>
     <li><b>Feb 2026</b> — <a href="https://arxiv.org/abs/2603.00326">Vectorized Adaptive Histograms for Sparse Oblique
             Forests</a> posted to arXiv, joint work with Google's <a
             href="https://github.com/google/yggdrasil-decision-forests">Yggdrasil Decision Forests (YDF)</a> team.</li>
@@ -41,10 +55,14 @@ description: "Ariel Lubonja - PhD Candidate at Johns Hopkins University. Scalabl
         Decision Forests</a> (YDF) team in Zurich.</p>
 
 <p>Cutting sparse oblique training time by <b>~6&times;</b> on high-dimensional data &mdash; 12 hours down to 2 &mdash;
-    contributed as <b>7 upstream pull requests</b> (3 merged, 4 in review) rather than a private fork. On top of that
-    baseline, two further methods add another <b>1.7&ndash;2.5&times;</b> end to end: SIMD-vectorized histogram binning,
-    where two vector compares replace a per-sample binary search, and a per-node adaptive splitter that chooses between
-    exact and histogram splits by cardinality. I am now extending this to multi-node distributed training and
+    contributed as <b>9 upstream pull requests</b> (3 landed: 2 merged on GitHub and 1 imported internally; 4 in
+    review) rather than a private fork. Two novel methods contribute <b>1.7&ndash;2.5&times;</b> of the 6&times;:
+    SIMD-vectorized histogram binning, where two vector compares replace a per-sample binary search, and a per-node
+    adaptive splitter that chooses between exact and histogram splits by cardinality. The rest comes from systems
+    work, most recently <a href="https://github.com/google/yggdrasil-decision-forests/pull/403">#403</a> (3&times;
+    faster on high-dimensional data by caching projection evaluation) and <a
+        href="https://github.com/google/yggdrasil-decision-forests/pull/409">#409</a> (up to 75% faster attribute
+    sampling), both in review. I am now building the first multi-node distributed trainer for sparse oblique forests and
     SIMD-vectorized inference via QuickScorer, and I mentor two graduate students on the project.</p>
 
 <p><a href="https://arxiv.org/abs/2603.00326">arXiv preprint</a> &middot; <a
@@ -56,8 +74,8 @@ description: "Ariel Lubonja - PhD Candidate at Johns Hopkins University. Scalabl
 <p><a href="https://github.com/NVIDIA/physicsnemo-sym">PhysicsNeMo</a> is NVIDIA's framework for Physics-ML surrogates
     of expensive dynamical systems, and it reads from the <a href="https://turbulence.pha.jhu.edu">Johns Hopkins
         Turbulence Database (JHTDB)</a>, of which I am a funded member. I restored its broken JHTDB data path by porting
-    it onto the current Giverny API, and removed a redundant low-resolution fetch for a 60% runtime reduction. Two pull
-    requests merged upstream.</p>
+    it onto the current Giverny API, and removed a redundant low-resolution fetch, a <b>2.5&times;</b> speedup on
+    low-resolution inputs. Two pull requests merged upstream.</p>
 
 <p><a href="https://github.com/NVIDIA/physicsnemo-sym/pull/275">PR #275</a> &middot; <a
         href="https://github.com/NVIDIA/physicsnemo-sym/pull/285">PR #285</a></p>
@@ -130,7 +148,7 @@ description: "Ariel Lubonja - PhD Candidate at Johns Hopkins University. Scalabl
             Kafka, with an emphasis on the architectural design and operational challenges of big data ecosystems at
             scale.</span>
     </li>
-    <li><b>Fall 2022</b> (Teaching Assistant), <b>Fall 2023</b> and <b>Fall 2024</b> (Course Assistant) &mdash;
+    <li><b>Fall 2022, 2023 and 2024</b> &mdash; Teaching Assistant (Course Assistant title in 2023&ndash;24),
         <b>EN.601.620 Parallel Programming &amp; Performance Engineering</b>
         <br/><span class="pub-venue">Johns Hopkins University. Writing efficient software by exploiting hardware
             parallelism &mdash; instruction-level parallelism, vectorization, pipelining, multicore and the memory
@@ -210,7 +228,9 @@ I contribute to the Johns Hopkins Turbulence Database's Python clients: <a
 
 <h1>Talks</h1>
 
-<a href="https://workshops.eeml.eu/">DeepMind's EEML Albania 2023</a>
+<a href="https://workshops.eeml.eu/previous-editions/amlw-2023">Albanian Machine Learning Workshop (AMLW) 2023</a>,
+an EEML satellite workshop organised with Google DeepMind researchers &mdash; University of New York Tirana, 20 October
+2023. Invited speaker alongside Razvan Pascanu, Viorica Patraucean and Caglar Gulcehre.
 
 <br/><br/>
 
@@ -258,4 +278,4 @@ I contribute to the Johns Hopkins Turbulence Database's Python clients: <a
 
 <h2>Other Cool Experience</h2>
 
-Hands-on experience with the <a href="https://www.arch.jhu.edu/rockfish-named-496in-top500-orgs-june-2023-top-500%EF%BF%BC/#:~:text=Rockfish%20named%20%23496in%20TOP500.">496th most powerful computer in the world!</a>
+Hands-on experience with <a href="https://www.arch.jhu.edu/rockfish/">Rockfish</a>, JHU's TOP500 cluster.
