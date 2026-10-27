@@ -18,15 +18,28 @@ description: "Ariel Lubonja - PhD Candidate at Johns Hopkins University. Scalabl
 <h1><b>News</b></h1>
 
 <ul class="news-list">
+    <li><b>Oct 2026</b>
+        <ul>
+            <li><a class="news-thumb" href="/assets/images/news/dsai-2026-poster.jpg"><img
+                        src="/assets/images/news/dsai-2026-poster.jpg"
+                        alt="Ariel presenting the Scalable Sparse Oblique Forests poster at DSAI 2026"></a>
+                Poster presentation of my Google collaboration work on <b>Scalable Sparse Oblique Forests</b> at the
+                Data Science and AI Symposium (<b>DSAI</b>) at JHU! Great evening with the Hopkins AI research
+                community.</li>
+            <li><a href="https://github.com/google/yggdrasil-decision-forests/pull/356">PR #356</a> merged into YDF:
+                15% Random Forest and 30% sparse oblique speedup from restructured split search.</li>
+        </ul>
+    </li>
     <li><b>Sep 2026</b>
         <ul>
             <li>Submitted my joint work with Google's YDF team to <b>SPAA 2027</b>! Up to 1.6&times; faster sparse
                 oblique kernels for Gradient Boosted Trees and up to 2&times; for Random Forests.</li>
             <li>Teaching Assistant for <b>EN.601.612 Big Data Systems</b> at Johns Hopkins (Spark, Kafka, Hadoop,
                 NoSQL).</li>
+            <li>Interviewed for the Machine Learning Engineer position at Netflix.</li>
         </ul>
     </li>
-    <li><b>Aug 2026</b> — Developing the first multi-node distributed training method for sparse oblique forests
+    <li><b>Aug 2026</b> — Developing the first multi-node <b>distributed training</b> method for sparse oblique forests
         with the YDF team; none exists today, which keeps the model out of large-scale AutoML pipelines.</li>
     <li><b>Jul 2026</b> — Two new YDF pull requests in review: <a
             href="https://github.com/google/yggdrasil-decision-forests/pull/403">#403</a>, 3&times; faster sparse
@@ -61,7 +74,7 @@ description: "Ariel Lubonja - PhD Candidate at Johns Hopkins University. Scalabl
         Decision Forests</a> (YDF) team in Zurich.</p>
 
 <p>Cutting sparse oblique training time by <b>~6&times;</b> on high-dimensional data &mdash; 12 hours down to 2 &mdash;
-    contributed as <b>9 upstream pull requests</b> (3 landed: 2 merged on GitHub and 1 imported internally; 4 in
+    contributed as <b>9 upstream pull requests</b> (4 landed: 3 merged on GitHub and 1 imported internally; 3 in
     review) rather than a private fork. Two novel methods contribute <b>1.7&ndash;2.5&times;</b> of the 6&times;:
     SIMD-vectorized histogram binning, where two vector compares replace a per-sample binary search, and a per-node
     adaptive splitter that chooses between exact and histogram splits by cardinality. The rest comes from systems

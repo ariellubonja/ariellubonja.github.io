@@ -50,7 +50,37 @@ html {
     > ul {
       margin: 0.2em 0 0;
       padding-left: 1.2em;
+
+      > li::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
     }
+  }
+}
+
+// Small news photo that enlarges on hover/focus
+.news-thumb {
+  position: relative;
+  float: right;
+  margin: 0.25em 0 0 0.7em;
+
+  img {
+    display: block;
+    height: 3.4em;
+    width: auto;
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transform-origin: top right;
+  }
+
+  &:hover img,
+  &:focus img {
+    position: relative;
+    z-index: 20;
+    transform: scale(5.5);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   }
 }
 
