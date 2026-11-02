@@ -82,6 +82,12 @@ html {
     transform: scale(5.5);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   }
+
+  // Wide screenshots need a smaller zoom to stay on screen
+  &.news-thumb-wide:hover img,
+  &.news-thumb-wide:focus img {
+    transform: scale(2.2);
+  }
 }
 
 .pub-venue {
