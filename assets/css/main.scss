@@ -90,6 +90,19 @@ html {
   }
 }
 
+// Row of several news photos, kept in source order
+.news-thumbs {
+  float: right;
+  display: flex;
+  gap: 0.3em;
+  margin: 0.25em 0 0 0.7em;
+
+  .news-thumb {
+    float: none;
+    margin: 0;
+  }
+}
+
 .pub-venue {
   color: $muted-text-color;
   font-size: 0.85em;
